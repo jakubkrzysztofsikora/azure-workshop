@@ -37,7 +37,7 @@
     {
       "type": "Microsoft.Web/sites",
       "kind": "functionapp",
-      "name": "[parameters('function_app_name')]",
+      "name": "[variables('function_app_name')]",
       "apiVersion": "2016-08-01",
       "location": "West Europe",
       "properties": {
@@ -45,12 +45,12 @@
         "hostNameSslStates": [
           {
             "name":
-              "[concat(parameters('function_app_name'),'.azurewebsites.net')]",
+              "[concat(variables('function_app_name'),'.azurewebsites.net')]",
             "hostType": "Standard"
           },
           {
             "name":
-              "[concat(parameters('function_app_name'),'.scm.azurewebsites.net')]",
+              "[concat(variables('function_app_name'),'.scm.azurewebsites.net')]",
             "sslState": "Disabled",
             "hostType": "Repository"
           }
