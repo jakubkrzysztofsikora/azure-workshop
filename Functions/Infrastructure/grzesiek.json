@@ -1,0 +1,64 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"serverfarms_WestEuropePlan_name": {
+			"defaultValue": "WestEuropePlan",
+			"type": "string"
+		}
+	},
+	"variables": {
+		"function_app_name": "grzesiek"
+	},
+	"resources": [
+		{
+            "type": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "Y1",
+                "tier": "Dynamic",
+                "size": "Y1",
+                "family": "Y",
+                "capacity": 0
+            },
+            "kind": "functionapp",
+            "name": "[parameters('serverfarms_WestEuropePlan_name')]",
+            "apiVersion": "2016-09-01",
+            "location": "West Europe",
+            "properties": {
+                "name": "[parameters('serverfarms_WestEuropePlan_name')]",
+                "perSiteScaling": false,
+                "reserved": false,
+                "targetWorkerCount": 0,
+                "targetWorkerSizeId": 0
+            },
+            "dependsOn": []
+        },
+		{
+			"type": "Microsoft.Web/sites",
+			"kind": "functionapp",
+			"name": "[parameters('function_app_name')]",
+			"apiVersion": "2016-08-01",
+			"location": "West Europe",
+			"properties": {
+				"enabled": true,
+				"hostNameSslStates": [
+					{
+						"name": "[concat(parameters('function_app_name'),'.azurewebsites.net')]",
+						"hostType": "Standard"
+					},
+					{
+						"name": "[concat(parameters('function_app_name'),'.scm.azurewebsites.net')]",
+						"sslState": "Disabled",
+						"hostType": "Repository"
+					}
+				],
+				"serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_WestEuropePlan_name'))]",
+				"containerSize": 1536,
+				"dailyMemoryTimeQuota": 0
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_WestEuropePlan_name'))]"
+			]
+		}
+	]
+}
