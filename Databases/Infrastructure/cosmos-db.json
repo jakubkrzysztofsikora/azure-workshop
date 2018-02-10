@@ -3,13 +3,13 @@
 	"contentVersion": "1.0.0.0",
 	"parameters": {},
 	"variables": {
-		"database_account_name": "grzesiek"
+		"database_account_name": "grzesiek-1"
 	},
 	"resources": [
 		{
 			"type": "Microsoft.DocumentDB/databaseAccounts",
 			"kind": "GlobalDocumentDB",
-			"name": "[parameters('database_account_name')]",
+			"name": "[variables('database_account_name')]",
 			"apiVersion": "2015-04-08",
 			"location": "West Europe",
 			"tags": {
@@ -23,7 +23,7 @@
 					"maxIntervalInSeconds": 5,
 					"maxStalenessPrefix": 100
 				},
-				"name": "[parameters('database_account_name')]"
+				"name": "[variables('database_account_name')]"
 			},
 			"dependsOn": []
 		}
