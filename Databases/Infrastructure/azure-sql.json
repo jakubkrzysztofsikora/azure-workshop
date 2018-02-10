@@ -41,7 +41,7 @@
       "properties": {
         "edition": "Basic",
         "serviceLevelObjective": "Basic",
-        "collation": "SQL_Latin1_General_Cp1_CI_AS_KI_WI",
+        "collation": "SQL_Latin1_General_CP1_CI_AS",
         "maxSizeBytes": "2147483648",
         "creationDate": "2018-02-03T17:01:10.67Z",
         "requestedServiceObjectiveName": "Basic",
