@@ -6,9 +6,54 @@
   "variables": {
     "connections_documentdb_1_name": "CosmosDbConnection",
     "connections_sql_name": "SqlDbConnection",
-    "connections_twitter_name": "TwitterConnection"
+    "connections_twitter_name": "jakubsikor"
   },
   "resources": [
+	{
+		"type": "Microsoft.Web/connections",
+		"name": "[variables('connections_documentdb_1_name')]",
+		"apiVersion": "2016-06-01",
+		"location": "westeurope",
+		"scale": null,
+		"properties": {
+			"displayName": "[variables('connections_documentdb_1_name')]",
+			"customParameterValues": {},
+			"api": {
+				"id": "/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/documentdb"
+			}
+		},
+		"dependsOn": []
+	},
+	{
+		"type": "Microsoft.Web/connections",
+		"name": "[variables('connections_sql_name')]",
+		"apiVersion": "2016-06-01",
+		"location": "westeurope",
+		"scale": null,
+		"properties": {
+			"displayName": "[variables('connections_sql_name')]",
+			"customParameterValues": {},
+			"api": {
+				"id": "[concat('/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/', variables('connections_sql_name'))]"
+			}
+		},
+		"dependsOn": []
+	},
+	{
+		"type": "Microsoft.Web/connections",
+		"name": "[variables('connections_twitter_name')]",
+		"apiVersion": "2016-06-01",
+		"location": "westeurope",
+		"scale": null,
+		"properties": {
+			"displayName": "[variables('connections_twitter_name')]",
+			"customParameterValues": {},
+			"api": {
+				"id": "[concat('/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/', variables('connections_twitter_name'))]"
+			}
+		},
+		"dependsOn": []
+	},
     {
       "type": "Microsoft.Logic/workflows",
       "name": "series-azure-workshop",
