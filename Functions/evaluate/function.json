@@ -1,0 +1,24 @@
+{
+  "bindings": [
+    {
+      "type": "cosmosDBTrigger",
+      "name": "documents",
+      "connectionStringSetting": "grzesiek_DOCUMENTDB",
+      "databaseName": "series",
+      "collectionName": "Tweets",
+      "leaseCollectionName": "Leases",
+      "createLeaseCollectionIfNotExists": true,
+      "direction": "in"
+    },
+    {
+      "type": "documentDB",
+      "name": "$return",
+      "databaseName": "series",
+      "collectionName": "Sentiments",
+      "createIfNotExists": false,
+      "connection": "grzesiek_DOCUMENTDB",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}

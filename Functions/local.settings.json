@@ -1,0 +1,16 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "WEBSITE_SLOT_NAME": "Production",
+    "FUNCTIONS_EXTENSION_VERSION": "~1",
+    "ScmType": "None",
+    "WEBSITE_AUTH_ENABLED": "False",
+    "grzesiek_DOCUMENTDB": "AccountEndpoint=https://grzesiek.documents.azure.com:443/;AccountKey=wF4vPcKQ7B5yZaoZj3OWSdWLSxFEfvYWhZ62cwGvowcYwKv3U08vjsYRTeXPp7WzWNjc2aU59EDdrJ7roJ8yLw==;",
+    "AzureWebJobsDashboard": "DefaultEndpointsProtocol=https;AccountName=grzesiekbd73;AccountKey=1Orow7XIEMTb8/HAiEb2JfUNMSRaqT9BdtKanyTtnoSie7z75/atE9yXh0UGYYGnnhAuwNOQ1y30BUnU1DoSlQ==",
+    "WEBSITE_NODE_DEFAULT_VERSION": "6.5.0",
+    "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "DefaultEndpointsProtocol=https;AccountName=grzesiekbd73;AccountKey=1Orow7XIEMTb8/HAiEb2JfUNMSRaqT9BdtKanyTtnoSie7z75/atE9yXh0UGYYGnnhAuwNOQ1y30BUnU1DoSlQ==",
+    "WEBSITE_CONTENTSHARE": "grzesiekbd73",
+    "WEBSITE_SITE_NAME": "grzesiek",
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=grzesiekbd73;AccountKey=1Orow7XIEMTb8/HAiEb2JfUNMSRaqT9BdtKanyTtnoSie7z75/atE9yXh0UGYYGnnhAuwNOQ1y30BUnU1DoSlQ=="
+  }
+}
