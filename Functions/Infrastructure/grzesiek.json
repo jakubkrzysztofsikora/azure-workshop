@@ -9,7 +9,7 @@
     }
   },
   "variables": {
-    "function_app_name": "grzesiek"
+    "function_app_name": "grzesiek-1"
   },
   "resources": [
     {

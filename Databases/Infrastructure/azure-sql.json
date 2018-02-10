@@ -13,7 +13,7 @@
     }
   },
   "variables": {
-    "server_name": "workshop-poc",
+    "server_name": "workshop-poc-1",
     "database_name": "series"
   },
   "resources": [
