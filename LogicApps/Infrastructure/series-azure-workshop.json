@@ -71,33 +71,33 @@
             "value": {
               "documentdb_1": {
                 "connectionId":
-                  "[resourceId('Microsoft.Web/connections', variables('connections_documentdb_1_name'))]",
+                  "[resourceId('Microsoft.Web/connections', variables('connections_documentdb_1_api_name'))]",
                 "connectionName": "documentdb-1",
                 "id":
                   "/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/documentdb"
               },
               "sql": {
                 "connectionId":
-                  "[resourceId('Microsoft.Web/connections', variables('connections_sql_name'))]",
+                  "[resourceId('Microsoft.Web/connections', variables('connections_sql_api_name'))]",
                 "connectionName": "sql",
                 "id":
-                  "/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/sql"
+                  "[concat('/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/', variables('connections_sql_api_name'))]"
               },
               "twitter": {
                 "connectionId":
-                  "[resourceId('Microsoft.Web/connections', variables('connections_twitter_name'))]",
+                  "[resourceId('Microsoft.Web/connections', variables('connections_twitter_api_name'))]",
                 "connectionName": "twitter",
                 "id":
-                  "/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/twitter"
+                  "[concat('/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/', variables('connections_twitter_api_name'))]"
               }
             }
           }
         }
       },
       "dependsOn": [
-        "[resourceId('Microsoft.Web/connections', variables('connections_documentdb_1_name'))]",
-        "[resourceId('Microsoft.Web/connections', variables('connections_sql_name'))]",
-        "[resourceId('Microsoft.Web/connections', variables('connections_twitter_name'))]"
+        "[resourceId('Microsoft.Web/connections', variables('connections_documentdb_1_api_name'))]",
+        "[resourceId('Microsoft.Web/connections', variables('connections_sql_api_name'))]",
+        "[resourceId('Microsoft.Web/connections', variables('connections_twitter_api_name'))]"
       ]
     }
   ]
