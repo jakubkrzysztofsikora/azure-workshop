@@ -4,6 +4,9 @@
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {
+    "connections_documentdb_1_api_name": "documentdb-1",
+    "connections_sql_api_name": "sql",
+    "connections_twitter_api_name": "twitter",
     "connections_documentdb_1_name": "CosmosDbConnection",
     "connections_sql_name": "SqlDbConnection",
     "connections_twitter_name": "jakubsikor"
@@ -11,7 +14,7 @@
   "resources": [
 	{
 		"type": "Microsoft.Web/connections",
-		"name": "[variables('connections_documentdb_1_name')]",
+		"name": "[variables('connections_documentdb_1_api_name')]",
 		"apiVersion": "2016-06-01",
 		"location": "westeurope",
 		"scale": null,
@@ -26,7 +29,7 @@
 	},
 	{
 		"type": "Microsoft.Web/connections",
-		"name": "[variables('connections_sql_name')]",
+		"name": "[variables('connections_sql_api_name')]",
 		"apiVersion": "2016-06-01",
 		"location": "westeurope",
 		"scale": null,
@@ -34,14 +37,14 @@
 			"displayName": "[variables('connections_sql_name')]",
 			"customParameterValues": {},
 			"api": {
-				"id": "[concat('/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/', variables('connections_sql_name'))]"
+				"id": "[concat('/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/', variables('connections_sql_api_name'))]"
 			}
 		},
 		"dependsOn": []
 	},
 	{
 		"type": "Microsoft.Web/connections",
-		"name": "[variables('connections_twitter_name')]",
+		"name": "[variables('connections_twitter_api_name')]",
 		"apiVersion": "2016-06-01",
 		"location": "westeurope",
 		"scale": null,
@@ -49,7 +52,7 @@
 			"displayName": "[variables('connections_twitter_name')]",
 			"customParameterValues": {},
 			"api": {
-				"id": "[concat('/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/', variables('connections_twitter_name'))]"
+				"id": "[concat('/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/', variables('connections_twitter_api_name'))]"
 			}
 		},
 		"dependsOn": []
