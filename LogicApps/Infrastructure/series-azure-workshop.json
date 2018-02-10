@@ -92,7 +92,103 @@
               }
             }
           }
-        }
+		},
+		"definition": {
+			"$schema":
+			  "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+			"actions": {
+			  "For_each": {
+				"actions": {
+				  "For_each_2": {
+					"actions": {
+					  "Create_or_update_document": {
+						"inputs": {
+						  "body": {
+							"id": "@items('For_each_2')?['TweetId']",
+							"seriesId": "@items('For_each')?['SeriesId']",
+							"tweet": "@items('For_each_2')"
+						  },
+						  "headers": {
+							"x-ms-documentdb-is-upsert": true
+						  },
+						  "host": {
+							"connection": {
+							  "name":
+								"@parameters('$connections')['documentdb_1']['connectionId']"
+							}
+						  },
+						  "method": "post",
+						  "path":
+							"/dbs/@{encodeURIComponent('series')}/colls/@{encodeURIComponent('Tweets')}/docs"
+						},
+						"runAfter": {},
+						"type": "ApiConnection"
+					  }
+					},
+					"foreach": "@body('Search_tweets')",
+					"runAfter": {
+					  "Search_tweets": ["Succeeded"]
+					},
+					"type": "Foreach"
+				  },
+				  "Search_tweets": {
+					"inputs": {
+					  "host": {
+						"connection": {
+						  "name":
+							"@parameters('$connections')['twitter']['connectionId']"
+						}
+					  },
+					  "method": "get",
+					  "path": "/searchtweets",
+					  "queries": {
+						"maxResults": 20,
+						"searchQuery": "@items('For_each')?['HashTag']"
+					  }
+					},
+					"runAfter": {},
+					"type": "ApiConnection"
+				  }
+				},
+				"foreach": "@body('Get_rows')?['value']",
+				"runAfter": {
+				  "Get_rows": ["Succeeded"]
+				},
+				"type": "Foreach"
+			  },
+			  "Get_rows": {
+				"inputs": {
+				  "host": {
+					"connection": {
+					  "name": "@parameters('$connections')['sql']['connectionId']"
+					}
+				  },
+				  "method": "get",
+				  "path":
+					"/datasets/default/tables/@{encodeURIComponent(encodeURIComponent('[dbo].[Hashtags]'))}/items"
+				},
+				"runAfter": {},
+				"type": "ApiConnection"
+			  }
+			},
+			"contentVersion": "1.0.0.0",
+			"outputs": {},
+			"parameters": {
+			  "$connections": {
+				"defaultValue": {},
+				"type": "Object"
+			  }
+			},
+			"triggers": {
+			  "Recurrence": {
+				"recurrence": {
+				  "frequency": "Minute",
+				  "interval": 5
+				},
+				"type": "Recurrence"
+			  }
+			}
+		  }
       },
       "dependsOn": [
         "[resourceId('Microsoft.Web/connections', variables('connections_documentdb_1_api_name'))]",
