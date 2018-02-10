@@ -1,56 +1,58 @@
 {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"server_login": {
-			"type": "securestring",
-			"defaultValue": ""
-		},
-		"server_login_password": {
-			"type": "securestring",
-			"defaultValue": ""
-		}
-	},
-	"variables": {
-		"server_name": "workshop_poc",
-		"database_name": "series"
-	},
-	"resources": [
-		{
-            "type": "Microsoft.Sql/servers",
-            "kind": "v12.0",
-            "name": "[parameters('server_name')]",
-            "apiVersion": "2015-05-01-preview",
-            "location": "northeurope",
-            "properties": {
-				"administratorLogin": "[parameters('server_login')]",
-				"administratorLoginPassword": "[parameters('server_login_password')]",
-                "version": "12.0"
-            },
-            "dependsOn": []
-		},
-		{
-            "type": "Microsoft.Sql/servers/databases",
-            "kind": "v12.0,user",
-            "name": "[concat(parameters('server_name'), '/', parameters('database_name'))]",
-            "apiVersion": "2014-04-01-preview",
-            "location": "North Europe",
-            "scale": null,
-            "properties": {
-                "edition": "Basic",
-                "serviceLevelObjective": "Basic",
-                "collation": "SQL_Latin1_General_Cp1_CI_AS_KI_WI",
-                "maxSizeBytes": "2147483648",
-                "creationDate": "2018-02-03T17:01:10.67Z",
-                "requestedServiceObjectiveName": "Basic",
-                "defaultSecondaryLocation": "West Europe",
-                "elasticPoolName": null,
-                "containmentState": 2,
-                "readScale": "Disabled"
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers', parameters('server_name'))]"
-            ]
-        }
-	]
+  "$schema":
+    "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "server_login": {
+      "type": "securestring",
+      "defaultValue": "NOT_TELLING_YOU"
+    },
+    "server_login_password": {
+      "type": "securestring",
+      "defaultValue": "NOT_TELLING_YOU"
+    }
+  },
+  "variables": {
+    "server_name": "workshop_poc",
+    "database_name": "series"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Sql/servers",
+      "kind": "v12.0",
+      "name": "[parameters('server_name')]",
+      "apiVersion": "2015-05-01-preview",
+      "location": "northeurope",
+      "properties": {
+        "administratorLogin": "[parameters('server_login')]",
+        "administratorLoginPassword": "[parameters('server_login_password')]",
+        "version": "12.0"
+      },
+      "dependsOn": []
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases",
+      "kind": "v12.0,user",
+      "name":
+        "[concat(parameters('server_name'), '/', parameters('database_name'))]",
+      "apiVersion": "2014-04-01-preview",
+      "location": "North Europe",
+      "scale": null,
+      "properties": {
+        "edition": "Basic",
+        "serviceLevelObjective": "Basic",
+        "collation": "SQL_Latin1_General_Cp1_CI_AS_KI_WI",
+        "maxSizeBytes": "2147483648",
+        "creationDate": "2018-02-03T17:01:10.67Z",
+        "requestedServiceObjectiveName": "Basic",
+        "defaultSecondaryLocation": "West Europe",
+        "elasticPoolName": null,
+        "containmentState": 2,
+        "readScale": "Disabled"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('server_name'))]"
+      ]
+    }
+  ]
 }

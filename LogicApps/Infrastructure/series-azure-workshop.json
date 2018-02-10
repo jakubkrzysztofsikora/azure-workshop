@@ -1,47 +1,56 @@
 {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {},
-    "variables": {
-		"connections_documentdb_1_name": "CosmosDbConnection",
-		"connections_sql_name": "SqlDbConnection",
-		"connections_twitter_name": "TwitterConnection"
-	},
-	"resources":  [{
-		"type": "Microsoft.Logic/workflows",
-		"name": "series-azure-workshop",
-		"apiVersion": "2017-07-01",
-		"location": "westeurope",
-		"tags": {},
-		"scale": null,
-		"properties": {
-			"state": "Enabled",
-			"parameters": {
-				"$connections": {
-					"value": {
-						"documentdb_1": {
-							"connectionId": "[resourceId('Microsoft.Web/connections', variables('connections_documentdb_1_name'))]",
-							"connectionName": "documentdb-1",
-							"id": "/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/documentdb"
-						},
-						"sql": {
-							"connectionId": "[resourceId('Microsoft.Web/connections', variables('connections_sql_name'))]",
-							"connectionName": "sql",
-							"id": "/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/sql"
-						},
-						"twitter": {
-							"connectionId": "[resourceId('Microsoft.Web/connections', variables('connections_twitter_name'))]",
-							"connectionName": "twitter",
-							"id": "/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/twitter"
-						}
-					}
-				}
-			}
-		},
-		"dependsOn": [
-			"[resourceId('Microsoft.Web/connections', variables('connections_documentdb_1_name'))]",
-			"[resourceId('Microsoft.Web/connections', variables('connections_sql_name'))]",
-			"[resourceId('Microsoft.Web/connections', variables('connections_twitter_name'))]"
-		]
-	}]
+  "$schema":
+    "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "connections_documentdb_1_name": "CosmosDbConnection",
+    "connections_sql_name": "SqlDbConnection",
+    "connections_twitter_name": "TwitterConnection"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Logic/workflows",
+      "name": "series-azure-workshop",
+      "apiVersion": "2017-07-01",
+      "location": "westeurope",
+      "tags": {},
+      "scale": null,
+      "properties": {
+        "state": "Enabled",
+        "parameters": {
+          "$connections": {
+            "value": {
+              "documentdb_1": {
+                "connectionId":
+                  "[resourceId('Microsoft.Web/connections', variables('connections_documentdb_1_name'))]",
+                "connectionName": "documentdb-1",
+                "id":
+                  "/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/documentdb"
+              },
+              "sql": {
+                "connectionId":
+                  "[resourceId('Microsoft.Web/connections', variables('connections_sql_name'))]",
+                "connectionName": "sql",
+                "id":
+                  "/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/sql"
+              },
+              "twitter": {
+                "connectionId":
+                  "[resourceId('Microsoft.Web/connections', variables('connections_twitter_name'))]",
+                "connectionName": "twitter",
+                "id":
+                  "/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/twitter"
+              }
+            }
+          }
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/connections', variables('connections_documentdb_1_name'))]",
+        "[resourceId('Microsoft.Web/connections', variables('connections_sql_name'))]",
+        "[resourceId('Microsoft.Web/connections', variables('connections_twitter_name'))]"
+      ]
+    }
+  ]
 }
