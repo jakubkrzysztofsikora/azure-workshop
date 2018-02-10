@@ -46,7 +46,7 @@
                 "defaultSecondaryLocation": "West Europe",
                 "elasticPoolName": null,
                 "containmentState": 2,
-                "readScale": "Disabled",
+                "readScale": "Disabled"
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Sql/servers', parameters('server_name'))]"
