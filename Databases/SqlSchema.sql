@@ -84,7 +84,7 @@ GO
 CREATE TABLE [dbo].[Series](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[Name] [varchar](100) NOT NULL,
-	[Rating] [decimal](18, 0) NOT NULL,
+	[Rating] [decimal](18, 2) NOT NULL,
 	[VotesCount] [int] NOT NULL,
 PRIMARY KEY CLUSTERED 
 (

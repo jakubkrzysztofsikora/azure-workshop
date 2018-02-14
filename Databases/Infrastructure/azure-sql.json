@@ -10,17 +10,20 @@
     "server_login_password": {
       "type": "securestring",
       "defaultValue": "NOT_TELLING_YOU"
-    }
+	},
+    "server_name": {
+		"defaultValue": "workshop-poc-1",
+		"type": "string"
+	}
   },
   "variables": {
-    "server_name": "workshop-poc-1",
     "database_name": "series"
   },
   "resources": [
     {
       "type": "Microsoft.Sql/servers",
       "kind": "v12.0",
-      "name": "[variables('server_name')]",
+      "name": "[parameters('server_name')]",
       "apiVersion": "2015-05-01-preview",
       "location": "northeurope",
       "properties": {
@@ -34,7 +37,7 @@
       "type": "Microsoft.Sql/servers/databases",
       "kind": "v12.0,user",
       "name":
-        "[concat(variables('server_name'), '/', variables('database_name'))]",
+        "[concat(parameters('server_name'), '/', variables('database_name'))]",
       "apiVersion": "2014-04-01-preview",
       "location": "North Europe",
       "scale": null,
@@ -50,7 +53,7 @@
         "readScale": "Disabled"
       },
       "dependsOn": [
-        "[resourceId('Microsoft.Sql/servers', variables('server_name'))]"
+        "[resourceId('Microsoft.Sql/servers', parameters('server_name'))]"
       ]
     }
   ]
