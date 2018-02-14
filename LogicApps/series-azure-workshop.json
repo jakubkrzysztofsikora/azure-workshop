@@ -6,21 +6,21 @@
           "/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/resourceGroups/poc/providers/Microsoft.Web/connections/documentdb-1",
         "connectionName": "documentdb-1",
         "id":
-          "/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/documentdb"
+          "/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/northeurope/managedApis/documentdb"
       },
       "sql": {
         "connectionId":
           "/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/resourceGroups/poc/providers/Microsoft.Web/connections/sql",
         "connectionName": "sql",
         "id":
-          "/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/sql"
+          "/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/northeurope/managedApis/sql"
       },
       "twitter": {
         "connectionId":
           "/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/resourceGroups/poc/providers/Microsoft.Web/connections/twitter",
         "connectionName": "twitter",
         "id":
-          "/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/twitter"
+          "/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/northeurope/managedApis/twitter"
       }
     }
   },

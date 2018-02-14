@@ -3,8 +3,8 @@
     "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "serverfarms_WestEuropePlan_name": {
-      "defaultValue": "WestEuropePlan",
+    "serverfarms_NorthEuropePlan_name": {
+      "defaultValue": "NorthEuropePlan",
       "type": "string"
     }
   },
@@ -22,11 +22,11 @@
         "capacity": 0
       },
       "kind": "functionapp",
-      "name": "[parameters('serverfarms_WestEuropePlan_name')]",
+      "name": "[parameters('serverfarms_NorthEuropePlan_name')]",
       "apiVersion": "2016-09-01",
       "location": "West Europe",
       "properties": {
-        "name": "[parameters('serverfarms_WestEuropePlan_name')]",
+        "name": "[parameters('serverfarms_NorthEuropePlan_name')]",
         "perSiteScaling": false,
         "reserved": false,
         "targetWorkerCount": 0,
@@ -56,12 +56,12 @@
           }
         ],
         "serverFarmId":
-          "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_WestEuropePlan_name'))]",
+          "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_NorthEuropePlan_name'))]",
         "containerSize": 1536,
         "dailyMemoryTimeQuota": 0
       },
       "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_WestEuropePlan_name'))]"
+        "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_NorthEuropePlan_name'))]"
       ]
     }
   ]

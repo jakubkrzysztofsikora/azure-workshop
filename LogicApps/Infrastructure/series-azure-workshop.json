@@ -16,13 +16,13 @@
 		"type": "Microsoft.Web/connections",
 		"name": "[variables('connections_documentdb_1_api_name')]",
 		"apiVersion": "2016-06-01",
-		"location": "westeurope",
+		"location": "northeurope",
 		"scale": null,
 		"properties": {
 			"displayName": "[variables('connections_documentdb_1_name')]",
 			"customParameterValues": {},
 			"api": {
-				"id": "/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/documentdb"
+				"id": "/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/northeurope/managedApis/documentdb"
 			}
 		},
 		"dependsOn": []
@@ -31,13 +31,13 @@
 		"type": "Microsoft.Web/connections",
 		"name": "[variables('connections_sql_api_name')]",
 		"apiVersion": "2016-06-01",
-		"location": "westeurope",
+		"location": "northeurope",
 		"scale": null,
 		"properties": {
 			"displayName": "[variables('connections_sql_name')]",
 			"customParameterValues": {},
 			"api": {
-				"id": "[concat('/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/', variables('connections_sql_api_name'))]"
+				"id": "[concat('/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/northeurope/managedApis/', variables('connections_sql_api_name'))]"
 			}
 		},
 		"dependsOn": []
@@ -46,13 +46,13 @@
 		"type": "Microsoft.Web/connections",
 		"name": "[variables('connections_twitter_api_name')]",
 		"apiVersion": "2016-06-01",
-		"location": "westeurope",
+		"location": "northeurope",
 		"scale": null,
 		"properties": {
 			"displayName": "[variables('connections_twitter_name')]",
 			"customParameterValues": {},
 			"api": {
-				"id": "[concat('/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/', variables('connections_twitter_api_name'))]"
+				"id": "[concat('/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/northeurope/managedApis/', variables('connections_twitter_api_name'))]"
 			}
 		},
 		"dependsOn": []
@@ -61,7 +61,7 @@
       "type": "Microsoft.Logic/workflows",
       "name": "series-azure-workshop",
       "apiVersion": "2017-07-01",
-      "location": "westeurope",
+      "location": "northeurope",
       "tags": {},
       "scale": null,
       "properties": {
@@ -74,21 +74,21 @@
                   "[resourceId('Microsoft.Web/connections', variables('connections_documentdb_1_api_name'))]",
                 "connectionName": "documentdb-1",
                 "id":
-                  "/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/documentdb"
+                  "/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/northeurope/managedApis/documentdb"
               },
               "sql": {
                 "connectionId":
                   "[resourceId('Microsoft.Web/connections', variables('connections_sql_api_name'))]",
                 "connectionName": "sql",
                 "id":
-                  "[concat('/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/', variables('connections_sql_api_name'))]"
+                  "[concat('/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/northeurope/managedApis/', variables('connections_sql_api_name'))]"
               },
               "twitter": {
                 "connectionId":
                   "[resourceId('Microsoft.Web/connections', variables('connections_twitter_api_name'))]",
                 "connectionName": "twitter",
                 "id":
-                  "[concat('/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/westeurope/managedApis/', variables('connections_twitter_api_name'))]"
+                  "[concat('/subscriptions/13310137-a445-41cb-a4d9-26fe7bc3eab6/providers/Microsoft.Web/locations/northeurope/managedApis/', variables('connections_twitter_api_name'))]"
               }
             }
           }
