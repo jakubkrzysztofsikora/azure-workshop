@@ -22,7 +22,7 @@
 			"displayName": "[variables('connections_documentdb_1_name')]",
 			"customParameterValues": {},
 			"api": {
-				"id": "[concat('/subscriptions/', subscription().subscriptionId,'/providers/Microsoft.Web/locations/',resourceGroup().location,'/managedApis/documentdb')]"
+				"id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/',resourceGroup().location,'/managedApis/documentdb')]"
 			}
 		},
 		"dependsOn": []
@@ -52,7 +52,7 @@
 			"displayName": "[variables('connections_twitter_name')]",
 			"customParameterValues": {},
 			"api": {
-				"id": "[concat('/subscriptions/, subscription().subscriptionId, '/providers/Microsoft.Web/locations/',resourceGroup().location,'/managedApis/',variables('connections_twitter_api_name'))]"
+				"id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/',resourceGroup().location,'/managedApis/',variables('connections_twitter_api_name'))]"
 			}
 		},
 		"dependsOn": []
