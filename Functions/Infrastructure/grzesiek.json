@@ -4,13 +4,15 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "serverfarms_NorthEuropePlan_name": {
-      "defaultValue": "NorthEuropePlan",
+      "defaultValue": "[concat(subscription().subscriptionId, 'NorthEuropePlan']",
       "type": "string"
-    }
+	},
+	"function_app_name": {
+		"defaultValue": "[concat(subscription().subscriptionId, 'grzesiek-1']",
+		"type": "string"
+	}
   },
-  "variables": {
-    "function_app_name": "grzesiek-1"
-  },
+  "variables": {},
   "resources": [
     {
       "type": "Microsoft.Web/serverfarms",
@@ -37,7 +39,7 @@
     {
       "type": "Microsoft.Web/sites",
       "kind": "functionapp",
-      "name": "[variables('function_app_name')]",
+      "name": "[parameters('function_app_name')]",
       "apiVersion": "2016-08-01",
       "location": "West Europe",
       "properties": {
@@ -45,12 +47,12 @@
         "hostNameSslStates": [
           {
             "name":
-              "[concat(variables('function_app_name'),'.azurewebsites.net')]",
+              "[concat(parameters('function_app_name'),'.azurewebsites.net')]",
             "hostType": "Standard"
           },
           {
             "name":
-              "[concat(variables('function_app_name'),'.scm.azurewebsites.net')]",
+              "[concat(parameters('function_app_name'),'.scm.azurewebsites.net')]",
             "sslState": "Disabled",
             "hostType": "Repository"
           }

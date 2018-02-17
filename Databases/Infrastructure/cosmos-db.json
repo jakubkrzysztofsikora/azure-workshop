@@ -3,7 +3,7 @@
 	"contentVersion": "1.0.0.0",
 	"parameters": {},
 	"variables": {
-		"database_account_name": "grzesiek-1"
+		"database_account_name": "[concat(subscription().subscriptionId, 'grzesiek-1']"
 	},
 	"resources": [
 		{
