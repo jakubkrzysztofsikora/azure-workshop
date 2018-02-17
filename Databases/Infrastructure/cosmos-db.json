@@ -3,7 +3,7 @@
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"database_account_name": {
-			"defaultValue": "[concat(subscription().subscriptionId, 'grzesiek-1')]",
+			"defaultValue": "[concat(subscription().subscriptionId, 'grzes')]",
 			"type": "string"
 		}
 	},

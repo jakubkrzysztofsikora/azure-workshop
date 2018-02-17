@@ -8,7 +8,7 @@
       "type": "string"
 	},
 	"function_app_name": {
-		"defaultValue": "[concat(subscription().subscriptionId, 'grzesiek-1')]",
+		"defaultValue": "[concat(subscription().subscriptionId, 'grzes')]",
 		"type": "string"
 	}
   },
