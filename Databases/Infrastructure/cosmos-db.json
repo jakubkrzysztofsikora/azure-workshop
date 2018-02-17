@@ -1,15 +1,18 @@
 {
 	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
 	"contentVersion": "1.0.0.0",
-	"parameters": {},
-	"variables": {
-		"database_account_name": "[concat(subscription().subscriptionId, 'grzesiek-1']"
+	"parameters": {
+		"database_account_name": {
+			"defaultValue": "[concat(subscription().subscriptionId, 'grzesiek-1']",
+			"type": "string"
+		}
 	},
+	"variables": {},
 	"resources": [
 		{
 			"type": "Microsoft.DocumentDB/databaseAccounts",
 			"kind": "GlobalDocumentDB",
-			"name": "[variables('database_account_name')]",
+			"name": "[parameters('database_account_name')]",
 			"apiVersion": "2015-04-08",
 			"location": "[resourceGroup().location]",
 			"tags": {
@@ -23,7 +26,7 @@
 					"maxIntervalInSeconds": 5,
 					"maxStalenessPrefix": 100
 				},
-				"name": "[variables('database_account_name')]"
+				"name": "[parameters('database_account_name')]"
 			},
 			"dependsOn": []
 		}
