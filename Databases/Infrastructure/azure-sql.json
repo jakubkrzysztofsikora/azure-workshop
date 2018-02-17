@@ -12,7 +12,7 @@
       "defaultValue": "NOT_TELLING_YOU"
 	},
     "server_name": {
-		"defaultValue": "[concat(subscription().subscriptionId, 'workshop-poc-1']",
+		"defaultValue": "[concat(subscription().subscriptionId, 'workshop-poc-1')]",
 		"type": "string"
 	}
   },
