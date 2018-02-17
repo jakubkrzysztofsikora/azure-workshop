@@ -4,11 +4,11 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "serverfarms_NorthEuropePlan_name": {
-      "defaultValue": "[concat(subscription().subscriptionId, 'NorthEuropePlan']",
+      "defaultValue": "[concat(subscription().subscriptionId, 'NorthEuropePlan')]",
       "type": "string"
 	},
 	"function_app_name": {
-		"defaultValue": "[concat(subscription().subscriptionId, 'grzesiek-1']",
+		"defaultValue": "[concat(subscription().subscriptionId, 'grzesiek-1')]",
 		"type": "string"
 	}
   },
