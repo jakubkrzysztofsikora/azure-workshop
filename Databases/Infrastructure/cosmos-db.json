@@ -11,7 +11,7 @@
 			"kind": "GlobalDocumentDB",
 			"name": "[variables('database_account_name')]",
 			"apiVersion": "2015-04-08",
-			"location": "West Europe",
+			"location": "[resourceGroup().location]",
 			"tags": {
 				"defaultExperience": "DocumentDB"
 			},

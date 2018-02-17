@@ -26,7 +26,7 @@
       "kind": "functionapp",
       "name": "[parameters('serverfarms_NorthEuropePlan_name')]",
       "apiVersion": "2016-09-01",
-      "location": "West Europe",
+      "location": "[resourceGroup().location]",
       "properties": {
         "name": "[parameters('serverfarms_NorthEuropePlan_name')]",
         "perSiteScaling": false,
@@ -41,7 +41,7 @@
       "kind": "functionapp",
       "name": "[parameters('function_app_name')]",
       "apiVersion": "2016-08-01",
-      "location": "West Europe",
+      "location": "[resourceGroup().location]",
       "properties": {
         "enabled": true,
         "hostNameSslStates": [

@@ -25,7 +25,7 @@
       "kind": "v12.0",
       "name": "[parameters('server_name')]",
       "apiVersion": "2015-05-01-preview",
-      "location": "southcentralus",
+      "location": "[resourceGroup().location]",
       "properties": {
         "administratorLogin": "[parameters('server_login')]",
         "administratorLoginPassword": "[parameters('server_login_password')]",
@@ -39,7 +39,7 @@
       "name":
         "[concat(parameters('server_name'), '/', variables('database_name'))]",
       "apiVersion": "2014-04-01-preview",
-      "location": "South Central US",
+      "location": "[resourceGroup().location]",
       "scale": null,
       "properties": {
         "edition": "Basic",
