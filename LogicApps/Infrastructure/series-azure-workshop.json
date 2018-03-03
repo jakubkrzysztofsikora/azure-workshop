@@ -46,7 +46,7 @@
 		"type": "Microsoft.Web/connections",
 		"name": "[variables('connections_twitter_api_name')]",
 		"apiVersion": "2016-06-01",
-		"location": "northeurope",
+		"location": "[resourceGroup().location]",
 		"scale": null,
 		"properties": {
 			"displayName": "[variables('connections_twitter_name')]",
@@ -61,7 +61,7 @@
       "type": "Microsoft.Logic/workflows",
       "name": "series-azure-workshop",
       "apiVersion": "2017-07-01",
-      "location": "northeurope",
+      "location": "[resourceGroup().location]",
       "tags": {},
       "scale": null,
       "properties": {

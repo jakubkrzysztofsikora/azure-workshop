@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 public static async Task<object[]> Run(IReadOnlyList<Document> documents, TraceWriter log)
 {
-    string apiUrl = "https://westeurope.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment";
+    string apiUrl = "https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment";
     List<object> output = new List<object>();
 
     if (documents != null && documents.Count > 0)
