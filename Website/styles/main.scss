@@ -1,0 +1,37 @@
+h1 {
+  color: pink;
+}
+
+h2 {
+  color: blue;
+}
+
+.custom-icon {
+  border-radius: 50%;
+  width: 1.4em;
+  height: 1.4em;
+  text-align: center;
+  font-size: larger;
+  font-weight: bold;
+  color: #2a2b24;
+  &.accepted {
+    background-color: #43ff39;
+  }
+  &.rejected {
+    background-color: #ff3a3a;
+  }
+  &.pending {
+    background-color: #ffdf51;
+  }
+  &.reserve {
+    background-color: #0c7ae0;
+  }
+  &.userAccepted:before {
+    padding-left: 50px;
+    content: "\2713";
+  }
+  &.userRejected:before {
+    padding-left: 50px;
+    content: "\2715";
+  }
+}

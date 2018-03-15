@@ -3,14 +3,6 @@
     "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "server_login": {
-      "type": "securestring",
-      "defaultValue": "NOT_TELLING_YOU"
-    },
-    "server_login_password": {
-      "type": "securestring",
-      "defaultValue": "NOT_TELLING_YOU"
-	},
     "server_name": {
 		"defaultValue": "[concat(subscription().subscriptionId, 'workshop-poc-1')]",
 		"type": "string"
@@ -24,19 +16,6 @@
     "database_name": "series"
   },
   "resources": [
-    {
-      "type": "Microsoft.Sql/servers",
-      "kind": "v12.0",
-      "name": "[parameters('server_name')]",
-      "apiVersion": "2015-05-01-preview",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "administratorLogin": "[parameters('server_login')]",
-        "administratorLoginPassword": "[parameters('server_login_password')]",
-        "version": "12.0"
-      },
-      "dependsOn": []
-	},
 	{
 		"type": "Microsoft.Sql/servers/firewallRules",
 		"kind": "v12.0",
