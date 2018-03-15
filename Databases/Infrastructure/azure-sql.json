@@ -22,7 +22,7 @@
       "name":
         "[concat(parameters('server_name'), '/', variables('database_name'))]",
       "apiVersion": "2014-04-01-preview",
-      "location": "[resourceGroup().location]",
+      "location": "francecentral",
       "scale": null,
       "properties": {
         "edition": "Basic",
