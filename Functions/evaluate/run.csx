@@ -27,7 +27,7 @@ public static async Task<object[]> Run(IReadOnlyList<Document> documents, TraceW
                 }
             };
             HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "c7999046fd574e87b8b59ad115922ad0");
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "36c2ec49d3ac42b6b46e650ebe34edac");
             var requestData = new StringContent(JsonConvert.SerializeObject(values), Encoding.UTF8, "application/json");
             var response = await client.PostAsync(apiUrl, requestData);
             var sentimentResult = await response.Content.ReadAsStringAsync();
