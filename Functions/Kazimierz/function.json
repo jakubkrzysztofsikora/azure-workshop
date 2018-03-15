@@ -6,7 +6,7 @@
       "direction": "in",
       "leaseCollectionName": "Leases",
       "connectionStringSetting": "grzesiek_DOCUMENTDB",
-      "databaseName": "series",
+      "databaseName": "Series",
       "collectionName": "Sentiments",
       "createLeaseCollectionIfNotExists": true
     }

@@ -4,7 +4,7 @@
       "type": "cosmosDBTrigger",
       "name": "documents",
       "connectionStringSetting": "grzesiek_DOCUMENTDB",
-      "databaseName": "series",
+      "databaseName": "Series",
       "collectionName": "Tweets",
       "leaseCollectionName": "Leases",
       "createLeaseCollectionIfNotExists": true,
@@ -13,7 +13,7 @@
     {
       "type": "documentDB",
       "name": "$return",
-      "databaseName": "series",
+      "databaseName": "Series",
       "collectionName": "Sentiments",
       "createIfNotExists": false,
       "connection": "grzesiek_DOCUMENTDB",
