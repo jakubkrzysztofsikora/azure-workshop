@@ -1,5 +1,5 @@
 {
-  "name": "CandidateApp",
+  "name": "ASV",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -45,6 +45,8 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "create-react-class": "^15.6.3",
+    "js-cookie": "^2.2.0",
     "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",

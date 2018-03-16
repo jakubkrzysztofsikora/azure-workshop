@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ItemList from './ItemList';
 import NavBar from './NavBar';
+import {getDataAsync} from '../actions/actiondispatchers'
 
 class Home extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <NavBar />
+        <NavBar getData={this.props.getData}/>
         <ItemList />
       </div>
     );
@@ -22,5 +23,9 @@ const mapStateToProps = (state) => {
     data: state.data.data
   }
 }
-
-export default connect(mapStateToProps)(Home);
+function mapDispatchToProps(dispatch) {
+  return({
+      getData: () => {dispatch(getDataAsync())}
+  })
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

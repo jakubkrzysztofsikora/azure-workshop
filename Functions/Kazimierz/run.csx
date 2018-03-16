@@ -19,8 +19,7 @@ public static async Task Run(IReadOnlyList<Document> documents, TraceWriter log)
                 conn.Open();
                 var seriesId = document.GetPropertyValue<string>("seriesId");
                 var rating = document.GetPropertyValue<dynamic>("documents")[0]["score"];
-
-                var text = $"UPDATE [dbo].[Series] SET [VotesCount] = [VotesCount] + 1, Rating = (([Rating] * ([VotesCount])) + {rating}) / ([VotesCount] + 1)";
+                var text = $"UPDATE [dbo].[Series] SET [VotesCount] = [VotesCount] + 1, Rating = (([Rating] * ([VotesCount])) + {rating}) / ([VotesCount] + 1) WHERE [dbo].[Series][Id] = {seriesId}";
 
                 using (SqlCommand cmd = new SqlCommand(text, conn))
                 {

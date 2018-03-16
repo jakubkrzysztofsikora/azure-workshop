@@ -3,18 +3,25 @@ import {
 } from './actions';
 
 import axios from 'axios'
+import Cookies from 'js-cookie'
 
 export const getDataAsync = () => (dispatch) => {
-  axios.get('https://azure-workshop.search.windows.net/indexes/azuresql-index/docs?api-version=2016-09-01&search=*',
+  const url = Cookies.get('url');
+  const token = Cookies.get('token');
+  axios.get(url,
     {
       headers: {
-      'api-key': '',
+      'api-key': token,
       }
     })
     .then(function (response) {
       dispatch(
         getData(response.data.value)
       )
-      
+    }).
+    catch(function(){
+      dispatch(
+        getData([])
+      )
     })
 };
