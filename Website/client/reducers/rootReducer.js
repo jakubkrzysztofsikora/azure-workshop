@@ -1,8 +1,0 @@
-import dataReducer from './dataReducer'
-import { combineReducers } from 'redux'
-import { routerReducer } from 'react-router-redux'
-
-export default combineReducers({
-  data: dataReducer,
-  routing: routerReducer,
-})
