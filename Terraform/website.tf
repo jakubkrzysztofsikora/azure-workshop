@@ -4,4 +4,5 @@ resource "azurerm_storage_account" "testsa" {
   location                 = "${var.location}"
   account_tier             = "Standard"
   account_replication_type = "GRS"
+  account_kind             = "StorageV2"
 }
