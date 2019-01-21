@@ -14,3 +14,12 @@ resource "azurerm_eventhub" "eventhub" {
   message_retention   = 1
   depends_on          = ["azurerm_eventhub_namespace.eventhub_namespace"]
 }
+
+resource "azurerm_eventhub" "eventhub2" {
+  name                = "calculatedsentiment"
+  namespace_name      = "${azurerm_eventhub_namespace.eventhub_namespace.name}"
+  resource_group_name = "${var.resource_group_name}"
+  partition_count     = 2
+  message_retention   = 1
+  depends_on          = ["azurerm_eventhub_namespace.eventhub_namespace"]
+}

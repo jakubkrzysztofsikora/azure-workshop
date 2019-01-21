@@ -26,4 +26,9 @@ resource "azurerm_function_app" "function_app" {
   storage_connection_string = "${azurerm_storage_account.function_storage.primary_connection_string}"
   depends_on                = ["azurerm_storage_account.function_storage", "azurerm_app_service_plan.consumption_plan"]
   version                   = "~2"
+  
+  app_settings {
+      "FUNCTIONS_WORKER_RUNTIME" = "dotnet"
+      "tweets-asdf_RootManageSharedAccessKey_EVENTHUB" = "${azurerm_eventhub_namespace.eventhub_namespace.default_primary_connection_string}"
+  }
 }
