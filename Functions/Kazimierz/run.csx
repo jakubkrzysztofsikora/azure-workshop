@@ -1,32 +1,29 @@
-#r "Microsoft.Azure.Documents.Client"
-#r "System.Configuration"
+#r "Newtonsoft.Json"
 #r "System.Data"
+
 using System;
-using System.Configuration;
 using System.Data.SqlClient;
-using System.Threading.Tasks;
-using Microsoft.Azure.Documents;
+using System.Configuration;
+using Newtonsoft.Json;
 
-public static async Task Run(IReadOnlyList<Document> documents, TraceWriter log)
+public static async Task Run(string sentiments, ILogger log)
 {
-    if (documents != null && documents.Count > 0)
+    foreach(var sentiment in JsonConvert.DeserializeObject<dynamic>(sentiments))
     {
-        foreach(var document in documents)
+        using (SqlConnection conn = new SqlConnection(Environment.GetEnvironmentVariable("WorkshopPoc")))
         {
-            var conectionString = ConfigurationManager.ConnectionStrings["WorkshopPoc"].ConnectionString;
-            using (SqlConnection conn = new SqlConnection(conectionString))
-            {
-                conn.Open();
-                var seriesId = document.GetPropertyValue<string>("seriesId");
-                var rating = document.GetPropertyValue<dynamic>("documents")[0]["score"];
-                var text = $"UPDATE [dbo].[Series] SET [VotesCount] = [VotesCount] + 1, Rating = (([Rating] * ([VotesCount])) + {rating}) / ([VotesCount] + 1) WHERE [dbo].[Series][Id] = {seriesId}";
+            var seriesId = Convert.ToInt32(sentiment["SeriesId"]);
+            var rating = sentiment["Score"];
+            conn.Open();
+            var command = $"UPDATE [dbo].[Series] SET [VotesCount] = [VotesCount] + 1, Rating = (([Rating] * ([VotesCount])) + {rating}) / ([VotesCount] + 1) WHERE [dbo].[Series].[Id] = {seriesId}";
 
-                using (SqlCommand cmd = new SqlCommand(text, conn))
-                {
-                    var rows = await cmd.ExecuteNonQueryAsync();
-                    log.Info($"{rows} rows were updated");
-                }
+            log.LogInformation($"{command}");
+            using (SqlCommand cmd = new SqlCommand(command, conn))
+            {
+                var rows = await cmd.ExecuteNonQueryAsync();
+                log.LogInformation($"{rows} rows were updated");
             }
+            conn.Close();
         }
     }
 }
